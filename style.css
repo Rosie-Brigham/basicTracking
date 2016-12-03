@@ -1,0 +1,35 @@
+body {
+  background-image: url(bg.jpg);
+  background-repeat:repeat;
+}
+.container {
+  margin: 10%;
+}
+
+p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #dad6d7;
+  text-align: center;
+}
+
+div {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}
+
+button {
+  background-color: #3f51b5;
+  border-radius: 5px;
+  border-color: #3f51b5;
+  color: #b5b5b5;
+  width: 80%;
+  padding: 15px;
+}
+
+button:hover {
+  background-color: #673ab7;
+  border-color: #673ab7;
+}
