@@ -17,7 +17,7 @@ function success(position){
   var userLat = position.coords.latitude;
   var userLon = position.coords.longitude;
 
-  $("p#message").html("Your geolocation from watchPosition is "
+  $("p#message").html("Your geolocation from getPosition is "
                       + userLat.toFixed(3) + " lattitude and " + userLon.toFixed(3) + " longitude")
 }
 
