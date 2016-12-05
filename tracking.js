@@ -2,7 +2,7 @@
 $(document).ready(function() {
   $("#watch-location").click(function(e) {
     e.preventDefault();
-    navigator.geolocation.watchPosition(success);
+    watchLocation()
   });
   $("#get-location").click(function(e) {
     e.preventDefault();
@@ -12,23 +12,31 @@ $(document).ready(function() {
 
 // tings
 
-function success(position){
+function watchSuccess(position){
   console.log("Tracking was successful!");
   var userLat = position.coords.latitude;
   var userLon = position.coords.longitude;
 
-  $("p#message").html("Your geolocation from getPosition is "
+  $("p#message").html("Your geolocation from watch position is "
                       + userLat + " lattitude and " + userLon + " longitude")
 }
 
+function watchLocation(){
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(watchSuccess) 
+  } else {
+    $("p#message").html("Woops, Geolocation is not supported by this browser.")
+  }
+}
+
 function getLocation() {
-    if (navigator.geolocation) {
+   if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
       $("p#message").html("Damm, Geolocation is not supported by this browser.")
     }
 }
 function showPosition(position) {
-  $("p#message").html("Your geolocation from watchPosition is <br> Latitude: " + position.coords.latitude +
+  $("p#message").html("Your geolocation from get location is <br> Latitude: " + position.coords.latitude +
     "<br>Longitude: " + position.coords.longitude);
 }
