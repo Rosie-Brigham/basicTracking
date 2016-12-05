@@ -23,7 +23,8 @@ function watchSuccess(position){
 
 function watchLocation(){
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(watchSuccess) 
+    $("p#message").html("calculating position") 
+   navigator.geolocation.watchPosition(watchSuccess) 
   } else {
     $("p#message").html("Woops, Geolocation is not supported by this browser.")
   }
@@ -31,7 +32,8 @@ function watchLocation(){
 
 function getLocation() {
    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+      $("p#message").html("calculating position")  
+      navigator.geolocation.getCurrentPosition(showPosition);
     } else {
       $("p#message").html("Damm, Geolocation is not supported by this browser.")
     }
